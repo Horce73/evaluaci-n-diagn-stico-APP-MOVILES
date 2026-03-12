@@ -1,0 +1,44 @@
+# Dependencias (se instalan dentro del contenedor)
+node_modules/
+vendor/
+
+# Assets compilados localmente (se compilan en el build)
+public/build/
+public/hot
+
+# Base de datos local (se crea dentro del contenedor)
+database/*.sqlite
+database/*.sqlite-shm
+database/*.sqlite-wal
+
+# Variables de entorno locales
+.env
+.env.local
+.env.*.local
+
+# Caché y logs
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*.php
+!bootstrap/cache/.gitignore
+
+# Control de versiones
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Herramientas de desarrollo
+.editorconfig
+.phpunit.result.cache
+phpunit.xml
+README.md
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

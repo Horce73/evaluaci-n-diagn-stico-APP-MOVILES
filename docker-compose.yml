@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    ports:
+      - "8000:8000"
+    volumes:
+      # Sincronizar código fuente para desarrollo 
+      - ./app:/var/www/html/app
+      - ./database/migrations:/var/www/html/database/migrations
+      - ./database/seeders:/var/www/html/database/seeders
+      - ./resources:/var/www/html/resources
+      - ./routes:/var/www/html/routes
+      # Persistir la base de datos SQLite
+      - sqlite_data:/var/www/html/database/sqlite
+      # Persistir los logs
+      - ./storage/logs:/var/www/html/storage/logs
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+    driver: local
